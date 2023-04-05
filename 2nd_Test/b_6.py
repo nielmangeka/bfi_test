@@ -70,9 +70,19 @@ if __name__ == "__main__":
     exercise_6_q4_df = exercise_6_q4_df.groupby(['Provinsi']).mean()
     exercise_6_q4_df = exercise_6_q4_df['Kasus_Sembuh']
 
-    print(exercise_6_q1)
-    print(exercise_6_q2_df)
-    print(exercise_6_q3_df.sort_values(by=['Persentase_Kesembuhan'],ascending=False))
-    print(exercise_6_q4_df)
+    # print(exercise_6_q1)
+    # print(exercise_6_q2_df)
+    # print(exercise_6_q3_df.sort_values(by=['Persentase_Kesembuhan'],ascending=False))
+    # print(exercise_6_q4_df)
 
+    rows = 7
+    for i in range(1, rows + 1):  
+        for j in range(1, rows + 1):  
+            # Check condition if value of j is smaller or equal than  
+            # the j then print i otherwise print j  
+            if j <= i:  
+                print(j, end=' ')  
+            else:  
+                print('*', end=' ')  
+        print()  
     
