@@ -37,20 +37,22 @@ class PostgresUtils():
                 cursor.execute(query_create_table)
                 connection.commit()
                 print('Selesai create table')
-
-        query_insert_data = """
-            INSERT INTO scrap_etle(
-                plat_kendaraan,
-                mesin_kendaraan,
-                rangka_kendaraan,
-                location,
-                penalty,
-                nominal,
-                capture_date,
-                created_date
-                )
-            VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
-            """
-        record_to_insert = tuple(etle_data.values())
-        cursor.execute(query_insert_data, record_to_insert)
-        connection.commit()
+        try:
+            query_insert_data = """
+                INSERT INTO scrap_etle(
+                    plat_kendaraan,
+                    mesin_kendaraan,
+                    rangka_kendaraan,
+                    location,
+                    penalty,
+                    nominal,
+                    capture_date,
+                    created_date
+                    )
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+                """
+            record_to_insert = tuple(etle_data.values())
+            cursor.execute(query_insert_data, record_to_insert)
+            connection.commit()
+        except:
+            print('Data sudah ada')
